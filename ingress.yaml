@@ -5,14 +5,15 @@ metadata:
   namespace: express-test
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    kubernetes.io/ingress.class: "public" # Changed to match argocd-ingress
+    kubernetes.io/ingress.class: "public"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   tls:
     - hosts:
-        - example1.com
+        - site.siyal.nirmalsavinda.info
       secretName: tls-secret-express
   rules:
-    - host: example1.com
+    - host: site.siyal.nirmalsavinda.info
       http:
         paths:
           - path: /
