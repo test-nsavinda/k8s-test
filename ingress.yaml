@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: express-test-server-ingress
+  name: nginx-test-server-ingress
   namespace: express-test
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
@@ -10,16 +10,16 @@ metadata:
 spec:
   tls:
     - hosts:
-        - site.siyal.nirmalsavinda.info
+        - nginx.siyal.nirmalsavinda.info
       secretName: tls-secret-express
   rules:
-    - host: site.siyal.nirmalsavinda.info
+    - host: nginx.siyal.nirmalsavinda.info
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: express-test-server
+                name: nginx-test-server
                 port:
                   number: 8071
