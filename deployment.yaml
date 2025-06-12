@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: express-test-server
+  name: nginx-test-server
   labels:
-    app: express-test-server
+    app: nginx-test-server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: express-test-server
+      app: nginx-test-server
   template:
     metadata:
       labels:
-        app: express-test-server
+        app: nginx-test-server
     spec:
       containers:
-        - name: express-test-server
-          image: ghcr.io/nsavinda/express-test-server:latest
+        - name: nginx-test-server
+          image: nginx:latest
           ports:
             - containerPort: 8210
