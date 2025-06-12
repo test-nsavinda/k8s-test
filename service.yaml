@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: express-test-server
+  name: nginx-test-server
 spec:
   selector:
-    app: express-test-server
+    app: nginx-test-server
   ports:
     - protocol: TCP
       port: 8071
